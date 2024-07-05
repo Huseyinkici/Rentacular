@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="C:\Users\wn\Desktop\EDGELEDGER/favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+  <!-- Slick Carousel JavaScript -->
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.slick-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 2500,
+        dots: true,
+        arrows: true
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('.callback-form');
+      const notificationContainer = document.querySelector('.notification-container');
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Formun varsayılan davranışını engelle
+
+        // Burada formun gönderimi gerçekleştirilir. (Sunucuya veri gönderimi, AJAX isteği, vs.)
+
+        // Bildirim kutusunu görünür hale getir ve içeriğini ayarla
+        notificationContainer.textContent = 'Başarıyla Gönderildi! Teşekkür ederiz.';
+        notificationContainer.style.display = 'block';
+
+        // Formun içeriğini sıfırla
+        form.reset();
+
+        // Opsiyonel olarak, bildirim kutusunun belirli bir süre sonra kaybolmasını sağlamak için:
+        setTimeout(function () {
+          notificationContainer.style.display = 'none';
+        }, 5000); // Örneğin, 5 saniye sonra kutuyu gizle
+      });
+    });
+  </script>
+
+
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Rentacular'a Hoş Geldiniz...</title>
+
+</head>
+
+<body id="home">
+  <header class="hero blog">
+    <div id="navbar" class="navbar">
+      <a href="index.html" class="logo-link">
+        <h1 class="logo">
+          <span class="text-primary"><i class="fas fa-car"></i> Rent</span>Acular
+        </h1>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="index.html#about">Hakkımızda</a></li>
+          <li><a href="cars.html#cars">Araçlarımız</a></li>
+          <li><a href="orta.html#contact">İletişim</a></li>
+          <li><a href="FirmaLogin.html">Kurumsal Firma Giriş</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="content">
+      <h1>Orta Segment Araçlarımız</h1>
+      <a href="ekonomik.html" class="yonet left"><i class="fas fa-chevron-left"></i></a>
+      <a href="SUV.html" class="yonet right"><i class="fas fa-chevron-right"></i></a>
+
+
+    </div>
+  </header>
+
+  <main>
+    <section class="post">
+
+      <div class="slick-slider">
+        <div>
+          <figure><img src="images/cars/Yaris.png" alt="Resim 1">
+            <figcaption class="alt-metin" style="font-size: 15px; font-family: 'Apple Chancery', cursive;">Toyota Yaris
+              Dizel Manuel / Otomatik
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <figure><img src="images/cars/Megane.png" alt="Resim 1">
+            <figcaption class="alt-metin" style="font-size: 15px; font-family: 'Apple Chancery', cursive;">Renault
+              Megane
+              Dizel Manuel / Otomatik
+            </figcaption>
+          </figure>
+        </div>
+        <div>
+          <figure><img src="images/cars/Focus.png" alt="Resim 1">
+            <figcaption class="alt-metin" style="font-size: 15px; font-family: 'Apple Chancery', cursive;">Ford Focus
+              Dizel Manuel / Otomatik
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+
+      <table class="guzel-tablo">
+        <thead>
+          <tr>
+            <th>Kişi</th>
+            <th>Çanta</th>
+            <th>Vites</th>
+            <th>Teminat Tutarı</th>
+            <th>Yakıt Türü</th>
+            <th>Günlük Km</th>
+            <th>Kredi Kartı</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><i class="fas fa-person"></i> 5</td>
+            <td><i class="fas fa-shopping-bag"></i> 4</td>
+            <td><i class="fas fa-arrows-alt"></i> Manuel veya Otomatik</td>
+            <td><i class="fas fa-credit-card"></i> 3000 <strong>
+                <span>&#8378;</span></strong></td>
+            <td><i class="fas fa-gas-pump"></i> Dizel</td>
+            <td><i class="fas fa-car-side"></i> 350 Km / <strong>Günlük</strong></td>
+            <td><i class="far fa-credit-card"></i> 1 Kart</td>
+          </tr>
+        </tbody>
+      </table>
+      <a href="kayit.html" style="font-family: 'Chalkduster', fantasy; font-size: 17px;"
+        class="rezervasyon-butonu">Rezervasyon Yap</a>
+    </section>
+    <!-- Contact -->
+    <section id="contact" class="contact flex-columns">
+      <div class="notification-container"></div>
+      <div class="row">
+        <div class="column">
+          <div class="column-1">
+            <img src="images/home/contact.jpg" alt="">
+          </div>
+        </div>
+        <div class="column">
+          <div class="column-2 bg-light">
+            <h2>Bize Ulaşın!</h2>
+            <form action="" class="callback-form">
+              <div class="form-control">
+                <label for="name"></label>
+                <input type="text" name="name" id="name" placeholder="Adınızı Giriniz...">
+              </div>
+              <div class="form-control">
+                <label for="name"></label>
+                <input type="text" name="name" id="name" placeholder="Şirket Adını Giriniz...">
+              </div>
+              <div class="form-control">
+                <label for="email"></label>
+                <input type="text" name="email" id="email" placeholder="Email...">
+              </div>
+              <div class="form-control">
+                <label for="phone"></label>
+                <input type="text" name="phone" id="phone" placeholder="Telefon Numarası">
+              </div>
+              <input type="submit" value="Gönder" id="submit" class="btn">
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer bg-dark">
+    <a href="tel:+95373822757"><i class="fas fa-phone-volume"></i> (+90-537-382-27-57)</a>
+    <div class="social">
+
+      <a href="https://www.facebook.com/" target="_blank"><i class="social-icon fab fa-facebook fa-2x"></i></a>
+      <a href="https://twitter.com/" target="_blank"><i class="social-icon fab fa-twitter fa-2x"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="social-icon fab fa-instagram fa-2x"></i></a>
+      <a href="mailto:huseyinkici@outlook.com" target="_blank"><i class="social-icon fas fa-envelope fa-2x"></i></a>
+      <a href="https://www.apple.com/tr/app-store/rentacular/id123456789" target="_blank"><i
+          class="social-icon fab fa-apple fa-2x"></i></a>
+      <a href="https://play.google.com/store/apps/details?id=com.rentacular" target="_blank"><i
+          class="social-icon fab fa-google-play fa-2x"></i></a>
+
+    </div>
+    <p>Copyright &copy; 2023 - RentAcular</p>
+
+  </footer>
+</body>
+
+</html>

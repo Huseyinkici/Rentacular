@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Rentacular</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #5194b3;
+      color: #fff;
+      line-height: 1.8;
+      background-image: url('Logo.png');
+      background-size: contain;
+      /* Resmi boyutlandırırken oranlarını koruyarak içerisine sığdırır */
+      background-repeat: no-repeat;
+      background-position: 20px -70px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    #container {
+      margin: 20px auto 30px;
+      max-width: 400px;
+      padding: 20px;
+      margin-right: 80px;
+    }
+
+    .form-wrap {
+      background: #fff;
+      padding: 15px 25px;
+      color: #333;
+    }
+
+    .form-wrap h1,
+    .form-wrap p {
+      text-align: center;
+    }
+
+    .form-wrap .form-group {
+      margin-top: 15px;
+    }
+
+    .form-wrap .form-group label {
+      display: block;
+      color: #666;
+    }
+
+    .form-wrap .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: #ddd 1px solid;
+      border-radius: 5px;
+    }
+
+    .form-wrap button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background: #49c1a2;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-wrap button:hover {
+      background: #37a08e;
+    }
+
+    .form-wrap .bottom-text {
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    footer a {
+      color: #49c1a2;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <div class="form-wrap">
+      <h1>Rezervasyon Formu</h1>
+      <form id="rezervasyonForm" action="kayit-olunca-sayfa.html" method="post" onsubmit="return submitForm(event)">
+        <div class="form-group">
+          <label for="firma-ad">Firma Adı</label>
+          <input type="text" name="firmaAd" id="firma-ad" required />
+        </div>
+        <div class="form-group">
+          <label for="first-name">Yetkili Adı</label>
+          <input type="text" name="firstName" id="first-name" required />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Yetkili Soyadı</label>
+          <input type="text" name="lastName" id="last-name" required />
+        </div>
+        <div class="form-group">
+          <label for="tel-no">Yetkili Telefon Numarası</label>
+          <input type="tel" name="telNo" id="tel-no" placeholder="5XXXXXXXXX" required />
+        </div>
+        <div class="form-group">
+          <label for="tarih-sec">Rezervasyon Tarihi</label>
+          <input type="text" name="tarihSec" id="tarih-sec" placeholder="GG/AA/YYYY" required />
+        </div>
+        <div class="form-group">
+          <label for="kullanici-ad">Kullanıcı Adı</label>
+          <input type="text" name="kullaniciAd" id="kullanici-ad" required />
+        </div>
+        <div class="form-group">
+          <label for="sifre-id">Şifre</label>
+          <input type="password" name="sifreId" id="sifre-id" required />
+        </div>
+        <button type="submit" class="btn">Rezervasyon Yap</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="white-section" id="footer">
+    <div class="container-fluid" style="text-align: center">
+      <i class="social-icon fab fa-facebook-f"></i>
+      <i class="social-icon fab fa-twitter"></i>
+      <i class="social-icon fab fa-instagram"></i>
+      <i class="social-icon fas fa-envelope"></i>
+      <p>© Copyright 2023 Rentacular</p>
+    </div>
+  </footer>
+
+
+  <script>
+    function submitForm(event) {
+
+
+
+      // Formdaki gerekli alanları al
+      const formData = {
+        firmaAdi: document.getElementById("firma-ad").value,
+        yetkiliAdi: document.getElementById("first-name").value,
+        yetkiliSoyadi: document.getElementById("last-name").value,
+        telefonNo: document.getElementById("tel-no").value,
+        rezervasyonTarihi: document.getElementById("tarih-sec").value,
+        kullaniciAdi: document.getElementById("kullanici-ad").value,
+        sifre: document.getElementById("sifre-id").value
+      };
+
+
+      // Alanların kontrolü
+      for (const field in formData) {
+        if (formData[field] === "") {
+          alert("Lütfen tüm alanları doldurun.");
+          return;
+        }
+      }
+
+
+      // Form verilerini sunucuya gönderme
+      fetch('https://localhost:8084/rezervasyon', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Success:', data);
+          // Başarılı bir şekilde gönderildiğinde yapılacak işlemler
+          window.location.href = "kayit-olunca-sayfa.html";
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // Hata durumunda yapılacak işlemler
+        });
+
+
+    }
+  </script>
+
+</body>
+
+</html>

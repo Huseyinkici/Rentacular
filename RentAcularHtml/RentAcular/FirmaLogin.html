@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Rentacular</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #5194b3;
+      color: #fff;
+      line-height: 3;
+      background-image: url('Logo.png');
+      background-size: contain;
+      /* Resmi boyutlandırırken oranlarını koruyarak içerisine sığdırır */
+      background-repeat: no-repeat;
+      background-position: 30px -50px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    #container {
+      margin: 20px auto 30px;
+      max-width: 400px;
+      padding: 20px;
+      margin-right: 80px;
+    }
+
+    .form-wrap {
+      background: #fff;
+      padding: 15px 25px;
+      color: #333;
+    }
+
+    .form-wrap h1,
+    .form-wrap p {
+      text-align: center;
+    }
+
+    .form-wrap .form-group {
+      margin-top: 15px;
+    }
+
+    .form-wrap .form-group label {
+      display: block;
+      color: #666;
+    }
+
+    .form-wrap .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: #5194b3 2px solid;
+      border-radius: 5px;
+    }
+
+    .form-wrap button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background: #49c1a2;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-wrap button:hover {
+      background: #37a08e;
+    }
+
+    .form-wrap .bottom-text {
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    footer a {
+      color: #49c1a2;
+    }
+  </style>
+</head>
+
+<script>
+  function submitForm(event) {
+    event.preventDefault(); // Formun normal gönderimini engellemek için
+
+    // Formdaki verileri al
+
+    const kullaniciAd = document.getElementById("kullanici-ad").value;
+    const sifreId = document.getElementById("sifre-id").value;
+    const oturumAc = document.getElementById("oturum-ac").value;
+
+    // Burada form verilerini kullanarak istediğiniz işlemi yapabilirsiniz
+    // Örneğin, konsola yazdıralım:
+    console.log("Kullanıcı Adı:", kullaniciAd);
+    console.log("Şifre:", sifreId);
+    console.log("Oturumu Açık Tut:", oturumAc);
+
+    // İşlem tamamlandıktan sonra sayfayı yenileme veya başka bir şey yapabilirsiniz
+    // Örneğin, formu temizleme:
+    document.getElementById("kullanici-ad").value = "sec";
+    document.getElementById("sifre-id").value = "";
+    document.getElementById("oturum-ac").value = "";
+
+  }
+</script>
+
+<body>
+
+
+  <div id="container">
+    <div class="form-wrap">
+      <h1>Kurumsal Firma Giriş</h1>
+      <form action="giriş_sonrasi.html" method="post" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="kullanici-ad">E-Posta veya Kullanıcı Adı</label>
+          <input type="text" name="kullaniciAd" id="kullanici-ad" />
+        </div>
+        <div class="form-group">
+          <label for="sifre-id">Şifre</label>
+          <input type="password" name="sifreId" id="sifre-id" />
+        </div>
+        <div class="form-group">
+          <label for="oturum-ac">Oturumu Açık Tut</label>
+          <input type="checkbox" name="oturumAc" id="oturum-ac" />
+        </div>
+        <button type="submit" class="btn">Oturum Aç</button>
+      </form>
+    </div>
+    <footer>
+      <!-- Footer içeriği -->
+    </footer>
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault(); // Formun normal gönderimini engellemek için
+
+      // Formdaki verileri al
+      const oturumAc = document.getElementById("oturum-ac").value;
+      const kullaniciAd = document.getElementById("kullanici-ad").value;
+      const sifreId = document.getElementById("sifre-id").value;
+
+      // Burada form verilerini kullanarak istediğiniz işlemi yapabilirsiniz
+      // Örneğin, konsola yazdıralım:
+      console.log("Oturumu Açık Tut:", oturumAc);
+      console.log("Kullanıcı Adı:", kullaniciAd);
+      console.log("Şifre:", sifreId);
+
+      // İşlem tamamlandıktan sonra sayfayı yenileme veya başka bir şey yapabilirsiniz
+      // Örneğin, kullanıcıyı belirtilen sayfaya yönlendirme:
+      window.location.href = "giris_sonrasi.html";
+    }
+    function submitForm(event) {
+      event.preventDefault(); // Formun normal gönderimini engelle
+
+      // Formdaki gerekli alanları al
+      const oturumAc = document.getElementById("oturum-ac").value;
+      const kullaniciAdi = document.getElementById("kullanici-ad").value;
+      const sifre = document.getElementById("sifre-id").value;
+
+      // Alanların kontrolü
+      if (
+        oturumAc === "" ||
+        kullaniciAdi === "" ||
+        sifre === ""
+      ) {
+        alert("Bilgileri Giriniz... :)"); // Eğer bir alan boşsa uyarı ver
+      } else {
+        // Eğer alanlar doluysa işlemi devam ettir (örneğin, yönlendirme yap)
+        window.location.href = "giris_sonrasi.html";
+      }
+    }
+  </script>
+  <!-- Call to Action -->
+
+  <!-- Footer -->
+
+  <footer class="white-section" id="footer">
+    <div class="container-fluid" style="text-align: center">
+      <i class="social-icon fab fa-facebook-f"></i>
+      <i class="social-icon fab fa-twitter"></i>
+      <i class="social-icon fab fa-instagram"></i>
+      <i class="social-icon fas fa-envelope"></i>
+      <p>© Copyright 2023 Rentacular</p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

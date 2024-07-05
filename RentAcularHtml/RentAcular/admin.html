@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Rentacular</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: #5194b3;
+      color: #fff;
+      line-height: 1.8;
+      background-image: url('Logo.png');
+      background-size: contain;
+      /* Resmi boyutlandırırken oranlarını koruyarak içerisine sığdırır */
+      background-repeat: no-repeat;
+      background-position: 20px -100px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    #container {
+      margin: 20px auto 30px;
+      max-width: 400px;
+      padding: 20px;
+      margin-right: 80px;
+    }
+
+    .form-wrap {
+      background: #fff;
+      padding: 15px 25px;
+      color: #333;
+    }
+
+    .form-wrap h1,
+    .form-wrap p {
+      text-align: center;
+    }
+
+    .form-wrap .form-group {
+      margin-top: 15px;
+    }
+
+    .form-wrap .form-group label {
+      display: block;
+      color: #666;
+    }
+
+    .form-wrap .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: #ddd 1px solid;
+      border-radius: 5px;
+    }
+
+    .form-wrap button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background: #49c1a2;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-wrap button:hover {
+      background: #37a08e;
+    }
+
+    .form-wrap .bottom-text {
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    footer a {
+      color: #49c1a2;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div class="form-wrap">
+      <h1>Çalışan Ekleme</h1>
+      <form action="#" method="post" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="calisan-id">Çalışan ID</label>
+          <input type="number" name="calisanId" id="calisan-id" />
+        </div>
+        <div class="form-group">
+          <label for="first-name">Adı</label>
+          <input type="text" name="firstName" id="first-name" />
+        </div>
+        <div class="form-group">
+          <label for="last-name">Soyadı</label>
+          <input type="text" name="lastName" id="last-name" />
+        </div>
+        <div class="form-group">
+          <label for="departmanSec">Departman</label>
+          <select id="departmanSec" name="departman">
+            <option value="sec">Seçiniz...</option>
+            <option value="insan_kaynaklari">İnsan Kaynakları Departmanı</option>
+            <option value="pazarlama">Pazarlama Departmanı</option>
+            <option value="temsilci">Müşteri Departmanı</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="rol">Rol</label>
+          <select id="rolSec" name="rol">
+            <option value="sec">Seçiniz...</option>
+            <option value="insan_kaynaklari">İnsan Kaynakları Uzmanı</option>
+            <option value="pazarlama">Pazarlama Uzmanı</option>
+            <option value="temsilci">Yurtdışı Müşteri Temsilcisi</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="tel-no">Telefon Numarası</label>
+          <input type="tel" name="telNo" id="tel-no" />
+        </div>
+        <button type="submit" class="btn">Ekle</button>
+      </form>
+    </div>
+    <footer>
+    </footer>
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault(); // Formun normal gönderimini engellemek için
+
+      // Formdaki verileri al
+      const calisanId = document.getElementById("calisan-id").value;
+      const firstName = document.getElementById("first-name").value;
+      const lastName = document.getElementById("last-name").value;
+      const departman = document.getElementById("departmanSec").value;
+      const rol = document.getElementById("rolSec").value;
+      const telNo = document.getElementById("tel-no").value;
+
+      // Burada form verilerini kullanarak istediğiniz işlemi yapabilirsiniz
+      // Örneğin, konsola yazdıralım:
+      console.log("Çalışan ID:", calisanId);
+      console.log("Adı:", firstName);
+      console.log("Soyadı:", lastName);
+      console.log("Departman:", departman);
+      console.log("Rol:", rol);
+      console.log("Telefon Numarası:", telNo);
+
+      // İşlem tamamlandıktan sonra sayfayı yenileme veya başka bir şey yapabilirsiniz
+      // Örneğin, formu temizleme:
+      document.getElementById("calisan-id").value = "";
+      document.getElementById("first-name").value = "";
+      document.getElementById("last-name").value = "";
+      document.getElementById("departmanSec").value = "sec";
+      document.getElementById("rolSec").value = "sec";
+      document.getElementById("tel-no").value = "";
+    }
+  </script>
+
+  <footer class="white-section" id="footer">
+    <div class="container-fluid" style="text-align: center">
+      <i class="social-icon fab fa-facebook-f"></i>
+      <i class="social-icon fab fa-twitter"></i>
+      <i class="social-icon fab fa-instagram"></i>
+      <i class="social-icon fas fa-envelope"></i>
+      <p>© Copyright 2023 Rentacular</p>
+    </div>
+  </footer>
+</body>
+
+</html>
